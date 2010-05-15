@@ -45,11 +45,22 @@ let ean13_valid (code : string) =
     else
         false
 
+// returns true if the provided EAN13 is valid and from bookland
+//
 let ean13_bookland(code : string) = 
     if ean13_valid(code) && ( code.Substring(0,3) = "978" || code.Substring(0,3) = "979" ) then
         true
     else
         false
+
+// convert the provided EAN13 to a UPC if possible. Returns null if there is no
+// way to complete the conversion
+
+let ean13_to_upc(code : string) = 
+    if ean13_valid(code) && code.Substring(0,1) = "0" then
+        code.Substring(1,12)
+    else
+        null
 
 [<EntryPoint>]
 let main (args : string[]) =
