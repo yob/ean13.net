@@ -1,8 +1,3 @@
-(*
-Mega Hello World:
-Take two command line parameters and then print
-them along with the current time to the console.
-*)
 open System
 
 let ean_sum (acc : int) (i : int) = acc + i
