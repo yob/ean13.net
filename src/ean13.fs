@@ -36,8 +36,17 @@ let ean13_complete (code : string) =
     else
         code + ean13_check_digit(code)
 
+// returns true if passed a 13 character string that is a valid EAN13, otherwise
+// returns false
+// 
 let ean13_valid (code : string) =
     if code.Length = 13 && code = ean13_complete(code.Substring(0,12)) then
+        true
+    else
+        false
+
+let ean13_bookland(code : string) = 
+    if ean13_valid(code) && ( code.Substring(0,3) = "978" || code.Substring(0,3) = "979" ) then
         true
     else
         false
@@ -48,6 +57,8 @@ let main (args : string[]) =
         failwith "Error: Expected arguments <code>"
     let code = args.[0]
     let valid = ean13_valid(code)
+    let bookland = ean13_bookland(code)
     printfn "%s is %b" code valid
+    printfn "bookland? %b" bookland
     // Program exit code
     0
