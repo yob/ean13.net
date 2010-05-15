@@ -1,0 +1,20 @@
+My first foray into functional programming a fsharp. A test app that checks a string
+to see if it's a valid EAN13 code.
+
+h2. Dependencies
+
+Requires the fsharp compiler to be installed and available at a hard coded
+location. I'll fix this at some point. To get fsharp installed with mono,
+follow the instructions at http://www.strangelights.com/fsharp/Wiki/default.aspx/FSharpWiki.MonoLinux
+
+h2. Compiling
+
+To compile the app, run:
+
+    @rake
+
+h3. Running
+
+To run the app, use:
+
+    @ean13.exe 9780330423625
