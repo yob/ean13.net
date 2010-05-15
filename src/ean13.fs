@@ -5,8 +5,39 @@ them along with the current time to the console.
 *)
 open System
 
+let ean_sum (acc : int) (i : int) = acc + i
+
+// If passed a 12 character string, calculates and returns a single
+// character string containing an appropriate check digit. Returns
+// Null otherwise
+let ean13_check_digit (code : string) =
+    if code.Length <> 12 then
+        null
+    else
+        let counter = [ 0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; 11 ]
+        let multipliers = [ 1; 3; 1; 3; 1; 3; 1; 3; 1; 3; 1; 3 ]
+        let numbers = code.ToCharArray() |> Array.toList |> List.map( fun c -> int(c) - 48)
+        let sum_num =
+            counter
+            |> List.map ( fun (i :int) -> numbers.[i] * multipliers.[i] )
+            |> List.fold ean_sum 0
+        let mod_num = sum_num % 10
+        if mod_num = 0 then
+            Convert.ToString(mod_num)
+        else
+            Convert.ToString(10 - mod_num)
+
+// take a 12 character string and add an ean13 check digit to it.
+// Returns a 13 character string if passed a 12 character string,
+// otherwise returns the original value unchanged
+let ean13_complete (code : string) =
+    if code.Length <> 12 then
+        code
+    else
+        code + ean13_check_digit(code)
+
 let ean13_valid (code : string) =
-    if code.Length = 13 then
+    if code.Length = 13 && code = ean13_complete(code.Substring(0,12)) then
         true
     else
         false
