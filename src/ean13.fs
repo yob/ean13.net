@@ -1,3 +1,5 @@
+module EAN13
+
 open System
 
 let ean_sum (acc : int) (i : int) = acc + i
@@ -56,15 +58,3 @@ let ean13_to_upc(code : string) =
         code.Substring(1,12)
     else
         null
-
-[<EntryPoint>]
-let main (args : string[]) =
-    if args.Length <> 1 then
-        failwith "Error: Expected arguments <code>"
-    let code = args.[0]
-    let valid = ean13_valid(code)
-    let bookland = ean13_bookland(code)
-    printfn "%s is %b" code valid
-    printfn "bookland? %b" bookland
-    // Program exit code
-    0

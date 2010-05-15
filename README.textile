@@ -9,12 +9,16 @@ follow the instructions at http://www.strangelights.com/fsharp/Wiki/default.aspx
 
 h2. Compiling
 
-To compile the app, run:
+To compile the EAN13 assembly, run:
 
-    @rake
+    @rake compile
+
+To compile the test app, run:
+
+    @rake compile_app
 
 h3. Running
 
 To run the app, use:
 
-    @ean13.exe 9780330423625
+    @ean13app.exe 9780330423625

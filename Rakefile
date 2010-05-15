@@ -8,5 +8,10 @@ task :default => [ :compile ]
 
 desc "Compile the app"
 task :compile do
-  `#{COMPILER} --target:exe --out:ean13.exe src/*.fs`
+  `#{COMPILER} --target:library --out:EAN13.dll src/*.fs`
+end
+
+desc "Compile the app"
+task :compile_app => :compile do
+  `gmcs -pkg:dotnet -r:EAN13.dll -out:ean13app.exe src/*.cs`
 end
