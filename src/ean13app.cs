@@ -11,8 +11,8 @@ class EAN13App
     } else
     {
       String code = args[0];
-      String msg_one = String.Format("{0} is {1}", code, EAN13.ean13_valid(code));
-      String msg_two = String.Format("Bookland is {1}", code, EAN13.ean13_bookland(code));
+      String msg_one = String.Format("{0} is {1}", code, EAN13.valid(code));
+      String msg_two = String.Format("Bookland is {1}", code, EAN13.bookland(code));
       Console.WriteLine (msg_one);
       Console.WriteLine (msg_two);
       return 0;
