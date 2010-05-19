@@ -1,11 +1,20 @@
-My first foray into functional programming a fsharp. A test app that checks a string
-to see if it's a valid EAN13 code.
+My first foray into functional programming with fsharp - a DLL for checking a
+string to see if it's a valid EAN. Also includes a very small command line app
+that uses the DLL to check if an argument is an EAN.
 
 h2. Dependencies
 
-Requires the fsharp compiler to be installed and available at a hard coded
-location. I'll fix this at some point. To get fsharp installed with mono,
-follow the instructions at http://www.strangelights.com/fsharp/Wiki/default.aspx/FSharpWiki.MonoLinux
+I'm a ruby guy that uses linux, so I'm using Rake as my build tool and mono for
+compilation.
+
+On Debian, run the following as root to get the necesary packages:
+
+    @aptitude install rake mono-2.0-devel mono-gmcs mono-mcs mono-runtime mono-utils nunit
+
+This also requires the fsharp compiler to be installed and available at a hard
+coded location. I'll fix this at some point. To get fsharp installed with mono,
+follow the instructions at
+http://www.strangelights.com/fsharp/Wiki/default.aspx/FSharpWiki.MonoLinux
 
 h2. Compiling
 
@@ -16,6 +25,10 @@ To compile the EAN13 assembly, run:
 To compile the test app, run:
 
     @rake compile_app
+
+To run the test suite, use:
+
+    @rake
 
 h3. Running
 
