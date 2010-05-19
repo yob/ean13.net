@@ -9,7 +9,7 @@ compilation.
 
 On Debian, run the following as root to get the necesary packages:
 
-    @aptitude install rake mono-2.0-devel mono-gmcs mono-mcs mono-runtime mono-utils nunit
+    @aptitude install rake mono-2.0-devel mono-gmcs mono-mcs mono-runtime mono-utils nunit@
 
 This also requires the fsharp compiler to be installed and available at a hard
 coded location. I'll fix this at some point. To get fsharp installed with mono,
@@ -20,21 +20,21 @@ h2. Compiling
 
 To compile the EAN13 assembly, run:
 
-    @rake compile
+    @rake compile@
 
 To compile the test app, run:
 
-    @rake compile_app
+    @rake compile_app@
 
 To run the test suite, use:
 
-    @rake
+    @rake@
 
 h3. Running
 
 To run the app, use:
 
-    @ean13app.exe 9780330423625
+    @ean13app.exe 9780330423625@
 
 h2. License
 
