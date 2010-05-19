@@ -35,3 +35,8 @@ h3. Running
 To run the app, use:
 
     @ean13app.exe 9780330423625
+
+h2. License
+
+This library is copyright James Healy and provided under the MIT license. See
+MIT-LICENSE for further details.
